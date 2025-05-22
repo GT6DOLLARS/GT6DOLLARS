@@ -1,79 +1,64 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #0f0f0f;
-  color: #f0f0f0;
+  background-color: #0c0c0c;
+  color: #f1c40f;
+  text-align: center;
 }
 
 .container {
+  padding: 40px 20px;
   max-width: 900px;
   margin: auto;
-  padding: 20px;
-}
-
-header {
-  text-align: center;
-  padding: 40px 20px;
 }
 
 .logo {
-  width: 120px;
+  max-width: 200px;
   margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 2.5rem;
-  color: #00ff9f;
+  font-size: 3rem;
+  margin: 10px 0;
 }
 
-.tagline {
+.subtitle {
+  color: #ffd700;
   font-size: 1.2rem;
-  color: #ccc;
+  margin-bottom: 30px;
 }
 
-main {
-  padding: 20px;
-}
-
-h2 {
-  color: #00d4ff;
-  margin-top: 40px;
-}
-
-p, ul {
-  font-size: 1.1rem;
-  line-height: 1.6;
+.about, .token-info, .social {
+  background-color: #1a1a1a;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #f1c40f55;
 }
 
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 ul li {
-  background: #1f1f1f;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-left: 4px solid #00ff9f;
+  margin: 10px 0;
 }
 
-.btn {
-  display: inline-block;
-  background: #00ff9f;
-  color: #000;
+a {
+  color: #f1c40f;
   text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 6px;
-  margin: 10px 10px 0 0;
+  display: block;
+  margin: 10px 0;
   font-weight: bold;
 }
 
-.btn:hover {
-  background: #00d4ff;
+a:hover {
+  color: #ffd700;
 }
 
 footer {
-  text-align: center;
-  padding: 30px 0;
-  color: #777;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #999;
 }
