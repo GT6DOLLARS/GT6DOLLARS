@@ -1,44 +1,52 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0d0d0d;
-  background-image: url('background.png'); /* replace with your dark image if needed */
-  background-size: cover;
-  background-position: center;
-  color: #fff;
+  background-color: #0b0b0b; /* Deep black like the image */
+  font-family: Arial, sans-serif;
+  color: gold;
   overflow-x: hidden;
   position: relative;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
 .logo {
-  width: 200px;
-  margin-top: 40px;
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+  box-shadow: none;
 }
 
-.container {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.gold-text {
-  color: gold;
-  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00;
+h1 {
   font-size: 3em;
+  color: gold;
+  text-shadow: 0 0 10px #ffd700;
 }
 
-.desc {
-  max-width: 600px;
-  margin: auto;
-  font-size: 1.2em;
-  color: #ccc;
+main {
+  text-align: center;
+  padding: 30px;
 }
 
 .info {
-  margin-top: 30px;
-  font-size: 1.1em;
-  color: #eee;
-  text-shadow: 0 0 5px gold;
+  font-size: 1.2em;
+  margin: 20px auto;
+  max-width: 800px;
+  text-shadow: 0 0 10px gold;
+}
+
+.info-box {
+  background-color: rgba(255, 215, 0, 0.05);
+  border: 1px solid gold;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: left;
+  box-shadow: 0 0 15px gold;
 }
 
 a {
@@ -50,48 +58,62 @@ a:hover {
   text-decoration: underline;
 }
 
-.token {
+.copy-text {
+  user-select: all;
+  cursor: pointer;
+  display: inline-block;
   font-family: monospace;
-  color: #fff;
-  background-color: #222;
-  padding: 4px 8px;
-  border-radius: 4px;
 }
 
 footer {
-  margin-top: 50px;
-  font-size: 0.9em;
-  color: #888;
-}
-
-.money-rain span {
-  position: absolute;
+  text-align: center;
+  padding: 20px;
   color: gold;
-  font-size: 30px;
-  animation: fall 5s linear infinite;
-  opacity: 0.8;
+  font-size: 0.9em;
+  border-top: 1px solid gold;
+  margin-top: 40px;
 }
 
 .money-rain {
   position: fixed;
   width: 100%;
   height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  top: 0;
+  left: 0;
   overflow: hidden;
-  z-index: 0;
+}
+
+.money-rain span {
+  position: absolute;
+  color: gold;
+  font-size: 2em;
+  animation: fall 4s linear infinite;
+  opacity: 0.8;
 }
 
 @keyframes fall {
-  0% { transform: translateY(-100px); opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
 
-.money-rain span:nth-child(1) { left: 5%; animation-delay: 0s; }
-.money-rain span:nth-child(2) { left: 15%; animation-delay: 0.5s; }
-.money-rain span:nth-child(3) { left: 25%; animation-delay: 1s; }
-.money-rain span:nth-child(4) { left: 35%; animation-delay: 1.5s; }
-.money-rain span:nth-child(5) { left: 45%; animation-delay: 2s; }
-.money-rain span:nth-child(6) { left: 55%; animation-delay: 2.5s; }
-.money-rain span:nth-child(7) { left: 65%; animation-delay: 3s; }
-.money-rain span:nth-child(8) { left: 75%; animation-delay: 3.5s; }
-.money-rain span:nth-child(9) { left: 85%; animation-delay: 4s; }
-.money-rain span:nth-child(10) { left: 95%; animation-delay: 4.5s; }
+.money-rain span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.money-rain span:nth-child(2) { left: 25%; animation-delay: 1s; }
+.money-rain span:nth-child(3) { left: 40%; animation-delay: 2s; }
+.money-rain span:nth-child(4) { left: 55%; animation-delay: 1.5s; }
+.money-rain span:nth-child(5) { left: 70%; animation-delay: 0.5s; }
+.money-rain span:nth-child(6) { left: 85%; animation-delay: 1.2s; }
+.money-rain span:nth-child(7) { left: 5%; animation-delay: 2.5s; }
+.money-rain span:nth-child(8) { left: 35%; animation-delay: 3s; }
+.money-rain span:nth-child(9) { left: 60%; animation-delay: 0.3s; }
+.money-rain span:nth-child(10) { left: 90%; animation-delay: 0.8s; }
