@@ -1,64 +1,48 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #0a0a0a;
-  color: #ffd700;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0d0d0d;
+  background-image: url('background.png'); /* replace with your dark image if needed */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
   overflow-x: hidden;
   position: relative;
 }
 
-.container {
-  text-align: center;
-  padding: 50px 20px;
-}
-
 .logo {
   width: 200px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  box-shadow: 0 0 20px gold;
+  margin-top: 40px;
 }
 
-.title {
-  font-size: 3em;
-  font-weight: bold;
+.container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.gold-text {
   color: gold;
   text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00;
-  margin-bottom: 10px;
+  font-size: 3em;
 }
 
-.subtitle {
-  font-size: 1.3em;
+.desc {
+  max-width: 600px;
+  margin: auto;
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+.info {
+  margin-top: 30px;
+  font-size: 1.1em;
   color: #eee;
-  margin-bottom: 30px;
-}
-
-.info-box {
-  background: rgba(255, 215, 0, 0.05);
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid gold;
-  max-width: 700px;
-  margin: 0 auto;
-  box-shadow: 0 0 20px #ffd70030;
-}
-
-.info-box p {
-  margin: 15px 0;
-  color: #fff;
-  font-size: 1em;
-}
-
-.token {
-  color: #ffd700;
-  font-family: monospace;
-  font-size: 0.9em;
-  word-break: break-all;
+  text-shadow: 0 0 5px gold;
 }
 
 a {
-  color: #ffcc00;
+  color: gold;
   text-decoration: none;
 }
 
@@ -66,43 +50,48 @@ a:hover {
   text-decoration: underline;
 }
 
-footer {
-  margin-top: 40px;
-  color: #888;
-  font-size: 0.9em;
+.token {
+  font-family: monospace;
+  color: #fff;
+  background-color: #222;
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
-/* Dollar Rain Animation */
-.money-rain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
+footer {
+  margin-top: 50px;
+  font-size: 0.9em;
+  color: #888;
 }
 
 .money-rain span {
   position: absolute;
   color: gold;
-  font-size: 24px;
-  animation: fall linear infinite;
+  font-size: 30px;
+  animation: fall 5s linear infinite;
   opacity: 0.8;
 }
 
-.money-rain span:nth-child(1) { left: 5%; animation-duration: 5s; animation-delay: 0s; }
-.money-rain span:nth-child(2) { left: 15%; animation-duration: 6s; animation-delay: 1s; }
-.money-rain span:nth-child(3) { left: 25%; animation-duration: 4s; animation-delay: 2s; }
-.money-rain span:nth-child(4) { left: 35%; animation-duration: 7s; animation-delay: 0s; }
-.money-rain span:nth-child(5) { left: 45%; animation-duration: 5s; animation-delay: 1s; }
-.money-rain span:nth-child(6) { left: 55%; animation-duration: 6s; animation-delay: 2s; }
-.money-rain span:nth-child(7) { left: 65%; animation-duration: 5s; animation-delay: 0s; }
-.money-rain span:nth-child(8) { left: 75%; animation-duration: 7s; animation-delay: 1s; }
-.money-rain span:nth-child(9) { left: 85%; animation-duration: 4s; animation-delay: 2s; }
-.money-rain span:nth-child(10) { left: 95%; animation-duration: 6s; animation-delay: 0s; }
+.money-rain {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
 
 @keyframes fall {
-  0% { top: -10%; transform: rotate(0deg); }
-  100% { top: 100%; transform: rotate(360deg); }
+  0% { transform: translateY(-100px); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
 }
+
+.money-rain span:nth-child(1) { left: 5%; animation-delay: 0s; }
+.money-rain span:nth-child(2) { left: 15%; animation-delay: 0.5s; }
+.money-rain span:nth-child(3) { left: 25%; animation-delay: 1s; }
+.money-rain span:nth-child(4) { left: 35%; animation-delay: 1.5s; }
+.money-rain span:nth-child(5) { left: 45%; animation-delay: 2s; }
+.money-rain span:nth-child(6) { left: 55%; animation-delay: 2.5s; }
+.money-rain span:nth-child(7) { left: 65%; animation-delay: 3s; }
+.money-rain span:nth-child(8) { left: 75%; animation-delay: 3.5s; }
+.money-rain span:nth-child(9) { left: 85%; animation-delay: 4s; }
+.money-rain span:nth-child(10) { left: 95%; animation-delay: 4.5s; }
