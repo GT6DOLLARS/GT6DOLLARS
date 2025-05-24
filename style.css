@@ -1,54 +1,64 @@
-/* Base styles */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  padding: 0;
   background-color: #0a0a0a;
-  color: #f1c40f;
+  color: #ffd700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
-header {
+.container {
   text-align: center;
-  padding: 2rem 1rem;
-  background: transparent;
+  padding: 50px 20px;
 }
 
 .logo {
-  width: 150px;
+  width: 200px;
   border-radius: 50%;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px gold;
 }
 
-.glow {
-  font-size: 3rem;
+.title {
+  font-size: 3em;
   font-weight: bold;
-  color: #ffd700;
-  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffaa00;
-  margin-bottom: 0.5rem;
-}
-
-.slogan {
-  font-size: 1.2rem;
-  color: #ccc;
-}
-
-.info {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  border: 1px solid gold;
-  box-shadow: 0 0 15px gold;
-  border-radius: 10px;
-}
-
-h2 {
   color: gold;
-  text-shadow: 0 0 8px #ffcc00;
+  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffcc00;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.3em;
+  color: #eee;
+  margin-bottom: 30px;
+}
+
+.info-box {
+  background: rgba(255, 215, 0, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid gold;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px #ffd70030;
+}
+
+.info-box p {
+  margin: 15px 0;
+  color: #fff;
+  font-size: 1em;
+}
+
+.token {
+  color: #ffd700;
+  font-family: monospace;
+  font-size: 0.9em;
+  word-break: break-all;
 }
 
 a {
-  color: #ffdd57;
+  color: #ffcc00;
   text-decoration: none;
 }
 
@@ -56,44 +66,43 @@ a:hover {
   text-decoration: underline;
 }
 
-.address {
-  font-family: monospace;
-  background: #222;
-  padding: 0.4rem 0.6rem;
-  display: inline-block;
-  border-radius: 5px;
-  margin-top: 5px;
-}
-
 footer {
-  text-align: center;
-  padding: 2rem;
-  color: #777;
-  font-size: 0.9rem;
-  margin-top: 4rem;
-  background-color: #000;
+  margin-top: 40px;
+  color: #888;
+  font-size: 0.9em;
 }
 
-/* Dollar rain animation */
-.dollar-rain {
+/* Dollar Rain Animation */
+.money-rain {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Dollar_sign.svg/1024px-Dollar_sign.svg.png');
-  background-repeat: repeat;
-  background-size: 50px;
-  animation: rain 20s linear infinite;
-  opacity: 0.03;
+  z-index: 1;
 }
 
-@keyframes rain {
-  0% {
-    background-position: 0 -100%;
-  }
-  100% {
-    background-position: 0 100%;
-  }
+.money-rain span {
+  position: absolute;
+  color: gold;
+  font-size: 24px;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+.money-rain span:nth-child(1) { left: 5%; animation-duration: 5s; animation-delay: 0s; }
+.money-rain span:nth-child(2) { left: 15%; animation-duration: 6s; animation-delay: 1s; }
+.money-rain span:nth-child(3) { left: 25%; animation-duration: 4s; animation-delay: 2s; }
+.money-rain span:nth-child(4) { left: 35%; animation-duration: 7s; animation-delay: 0s; }
+.money-rain span:nth-child(5) { left: 45%; animation-duration: 5s; animation-delay: 1s; }
+.money-rain span:nth-child(6) { left: 55%; animation-duration: 6s; animation-delay: 2s; }
+.money-rain span:nth-child(7) { left: 65%; animation-duration: 5s; animation-delay: 0s; }
+.money-rain span:nth-child(8) { left: 75%; animation-duration: 7s; animation-delay: 1s; }
+.money-rain span:nth-child(9) { left: 85%; animation-duration: 4s; animation-delay: 2s; }
+.money-rain span:nth-child(10) { left: 95%; animation-duration: 6s; animation-delay: 0s; }
+
+@keyframes fall {
+  0% { top: -10%; transform: rotate(0deg); }
+  100% { top: 100%; transform: rotate(360deg); }
 }
