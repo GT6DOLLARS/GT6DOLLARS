@@ -13,8 +13,7 @@ function createMoneyRain() {
   }
 }
 
-// Trigger rain immediately and every 60 seconds
 window.addEventListener("load", () => {
-  createMoneyRain(); // Start on load
-  setInterval(createMoneyRain, 60000); // Repeat every 60 seconds
+  createMoneyRain(); // Instant rain on load
+  setInterval(createMoneyRain, 60000); // Every 60 seconds
 });
