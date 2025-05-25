@@ -1,45 +1,43 @@
-/* Modern Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background: #0b0b0b;
-  font-family: 'Arial', sans-serif;
+  background: #000;
+  font-family: 'Bungee', cursive;
   color: gold;
   overflow-x: hidden;
   min-height: 100vh;
+  text-align: center;
 }
 
-/* Gradient Gold Text */
-.gradient-gold {
-  background: linear-gradient(90deg, #ffd700, #ffaa00, #ffd700);
+/* CRAZY TITLE EFFECT */
+.crazy-gold {
+  font-size: 4rem;
+  background: linear-gradient(90deg, #ffd700, #ff8c00, #ffd700);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+  animation: 
+    bounce 1.5s infinite ease-in-out,
+    glow 2s infinite alternate;
 }
 
-/* Glass Card Effect */
-.glass-card {
-  background: rgba(255, 215, 0, 0.05);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 25px;
-  max-width: 500px;
-  margin: 20px auto;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
-/* Logo Spin on Hover */
-.logo {
-  width: 100px;
-  transition: transform 0.5s;
-}
-.logo.spin-on-hover:hover {
-  transform: rotate(360deg);
+@keyframes glow {
+  from { text-shadow: 0 0 10px gold; }
+  to { text-shadow: 0 0 30px gold, 0 0 50px #ff8c00; }
 }
 
-/* Money Rain (Dynamic) */
+/* CONTROLLED MONEY RAIN */
 .money-rain {
   position: fixed;
   top: 0;
@@ -48,96 +46,133 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: -1;
+  display: none; /* Hidden by default */
 }
+
 .money-rain span {
   position: absolute;
   color: gold;
-  font-size: 1.5em;
-  animation: fall linear infinite;
-  opacity: 0.7;
-  transition: all 0.3s;
-}
-.money-rain span:hover {
-  opacity: 1;
-  text-shadow: 0 0 10px gold;
+  font-size: 1.8rem;
+  font-weight: bold;
+  animation: fall linear forwards;
+  top: -50px;
+  opacity: 0.9;
+  text-shadow: 0 0 5px gold;
 }
 
-/* Keyframes */
 @keyframes fall {
-  to { transform: translateY(100vh); }
-}
-@keyframes pulse {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 1; text-shadow: 0 0 15px gold; }
-}
-.gold-pulse { animation: pulse 2s infinite; }
-
-/* Meme Badge */
-.meme-badge {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 215, 0, 0.2);
-  color: gold;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.8em;
-  animation: float 3s ease-in-out infinite;
+  to { transform: translateY(calc(100vh + 50px)); }
 }
 
-/* Copy Box */
+/* PRO GLASS CARD */
+.glass-card {
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+/* COPY BUTTON */
 .copy-box {
   display: flex;
-  align-items: center;
   gap: 10px;
   margin: 15px 0;
+  align-items: center;
+  justify-content: center;
 }
+
 #tokenAddress {
   font-family: monospace;
   word-break: break-all;
+  font-size: 0.9rem;
 }
+
 #copyBtn {
   background: rgba(255, 215, 0, 0.2);
   color: gold;
   border: 1px solid gold;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 8px 15px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s;
-}
-#copyBtn:hover {
-  background: rgba(255, 215, 0, 0.4);
+  font-family: 'Bungee', cursive;
 }
 
-/* Social Links */
+#copyBtn:hover {
+  background: rgba(255, 215, 0, 0.4);
+  transform: scale(1.05);
+}
+
+/* SOCIAL BUTTONS */
 .social-links {
   display: flex;
   gap: 15px;
   justify-content: center;
   margin-top: 20px;
 }
-.social-links a {
-  color: gold;
+
+.social-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
   text-decoration: none;
+  font-weight: bold;
   transition: all 0.3s;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
-.social-links a:hover {
-  color: #ffaa00;
+
+.tg {
+  background: rgba(0, 136, 204, 0.2);
+  color: #0088cc;
+  border: 1px solid #0088cc;
+}
+
+.tw {
+  background: rgba(29, 161, 242, 0.2);
+  color: #1da1f2;
+  border: 1px solid #1da1f2;
+}
+
+.social-btn:hover {
   transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Float Animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* MEME BADGE */
+.meme-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 0, 255, 0.2);
+  color: #ff00ff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  animation: pulse 2s infinite;
+  border: 1px solid #ff00ff;
 }
 
-/* Responsive Adjustments */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* SPIN LOGO */
+.spin-on-hover {
+  transition: transform 0.5s;
+}
+
+.spin-on-hover:hover {
+  transform: rotate(360deg);
+}
+
+/* MOBILE RESPONSIVE */
 @media (max-width: 600px) {
-  header { flex-direction: column; text-align: center; }
-  .logo { margin-right: 0; margin-bottom: 15px; }
+  .crazy-gold { font-size: 2.5rem; }
   .glass-card { width: 90%; }
 }
