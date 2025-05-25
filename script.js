@@ -1,37 +1,38 @@
-// Controlled Money Rain (5s on, 60s off)
-function toggleMoneyRain() {
-  const moneyRain = document.getElementById('moneyRain');
+// SAFE ANIMATION CONTROLLER
+function createFallingElement() {
+  const element = document.createElement('span');
+  element.textContent = '$';
+  element.style.left = `${Math.random() * 100}%`;
+  element.style.animationDuration = `${Math.random() * 3 + 2}s`;
+  element.style.opacity = Math.random() * 0.5 + 0.3;
+  document.getElementById('moneyRain').appendChild(element);
+}
+
+function startAnimation() {
+  const rain = document.getElementById('moneyRain');
+  rain.innerHTML = '';
   
-  // Generate new $ elements each cycle
-  moneyRain.innerHTML = '';
-  for (let i = 0; i < 25; i++) {
-    const dollar = document.createElement('span');
-    dollar.innerHTML = '$';
-    dollar.style.left = Math.random() * 100 + '%';
-    dollar.style.animationDuration = (Math.random() * 2 + 3) + 's'; // 3-5s fall
-    dollar.style.animationDelay = Math.random() * 2 + 's';
-    moneyRain.appendChild(dollar);
+  // Create elements safely
+  for (let i = 0; i < 30; i++) {
+    createFallingElement();
   }
   
-  // Show for 5 seconds
-  moneyRain.style.display = 'block';
+  rain.style.display = 'block';
   setTimeout(() => {
-    moneyRain.style.display = 'none';
+    rain.style.display = 'none';
   }, 5000);
 }
 
 // Start cycle
-toggleMoneyRain();
-setInterval(toggleMoneyRain, 65000); // 65s total (5s on + 60s off)
+setTimeout(startAnimation, 1000);
+setInterval(startAnimation, 65000);
 
-// Copy Token Address
+// Copy button
 document.getElementById('copyBtn').addEventListener('click', () => {
-  const address = document.getElementById('tokenAddress').textContent;
-  navigator.clipboard.writeText(address).then(() => {
-    const btn = document.getElementById('copyBtn');
-    btn.innerHTML = '<i class="fas fa-check"></i> COPIED!';
-    setTimeout(() => {
-      btn.innerHTML = '<i class="fas fa-copy"></i> COPY';
-    }, 2000);
-  });
+  navigator.clipboard.writeText('5ZM7K9oW5nJ1D7mLZRsVZVpoBeFNJZ4sZHu2MMKKNdNE');
+  const btn = document.getElementById('copyBtn');
+  btn.innerHTML = '<i class="fas fa-check"></i> COPIED!';
+  setTimeout(() => {
+    btn.innerHTML = '<i class="fas fa-copy"></i> COPY';
+  }, 2000);
 });
