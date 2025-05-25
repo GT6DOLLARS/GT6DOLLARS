@@ -13,7 +13,7 @@ function createMoneyRain() {
   }
 }
 
-window.addEventListener("load", () => {
-  createMoneyRain(); // Instant rain on load
-  setInterval(createMoneyRain, 60000); // Every 60 seconds
-});
+createMoneyRain(); // Initial rain
+setInterval(() => {
+  createMoneyRain();
+}, 60000); // Rain every 60 seconds
