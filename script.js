@@ -1,4 +1,4 @@
-function createMoneyRain() {
+(function createMoneyRain() {
   for (let i = 0; i < 30; i++) {
     const money = document.createElement("div");
     money.classList.add("money");
