@@ -1,3 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #0d0d0d;
+  color: gold;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.animated-name {
+  font-size: 2.5rem;
+  animation: pulse 2s infinite;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #1a1a1a;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px gold;
+  flex: 1 1 300px;
+  max-width: 350px;
+}
+
+a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: white;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #777;
+}
+
+.token {
+  word-break: break-all;
+  font-size: 0.9rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px gold, 0 0 20px gold;
+  }
+  50% {
+    text-shadow: 0 0 30px gold, 0 0 40px gold;
+  }
+}
+
+.money-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.money {
+  position: absolute;
+  top: 0;
+  font-size: 1.5rem;
+  animation: fall linear;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* New layout additions */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -6,7 +97,15 @@
   margin-bottom: 20px;
 }
 
-.card {
-  flex: 1 1 400px;
+.three-cards .card {
+  flex: 1 1 300px;
+  max-width: 350px;
+}
+
+.one-card {
+  justify-content: center;
+}
+
+.one-card .card {
   max-width: 500px;
 }
