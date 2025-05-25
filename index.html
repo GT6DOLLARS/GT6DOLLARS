@@ -1,55 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:;">
-  <title>GT6DOLLARS | Solana Meme Token</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GT6DOLLARS</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #000;
+      color: #ffd700;
+      font-family: 'Arial Black', sans-serif;
+      text-align: center;
+    }
+
+    header {
+      padding: 30px 20px 10px;
+    }
+
+    .logo {
+      width: 200px;
+      height: auto;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-shadow: 0 0 20px gold;
+    }
+
+    .info {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      color: white;
+      text-shadow: 0 0 10px gold;
+    }
+
+    .info strong {
+      color: #ffd700;
+    }
+
+    .links {
+      margin-top: 20px;
+    }
+
+    .links a {
+      color: #ffd700;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    .money {
+      position: absolute;
+      top: -50px;
+      font-size: 30px;
+      animation: fall linear infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="money-rain" id="moneyRain"></div>
-  
   <header>
-    <img src="logo.png" alt="GT6DOLLARS Logo" class="logo spin">
-    <h1 class="crazy-title">GT6DOLLARS</h1>
-    <div class="meme-badge">MEME KING</div>
+    <img class="logo" src="553aafe9-bad9-42e5-8b20-9ca1128c5028.png" alt="GT6DOLLARS Logo" />
+    <h1>GT6DOLLARS</h1>
+    <div class="info">
+      Token Address:<br/>
+      <strong>5ZM7K9oW5nJ1D7mLZRsVZVpoBeFNJZ4sZHu2MMKKNdNE</strong>
+    </div>
+    <div class="links">
+      <a href="https://t.me/GT6A_Token" target="_blank">Telegram</a>
+      <a href="https://x.com/g_t6Adollar" target="_blank">X (Twitter)</a>
+    </div>
   </header>
 
-  <main>
-    <section class="glass-card">
-      <h2>What is GT6DOLLARS?</h2>
-      <p class="info">
-        A community-driven meme token with no shame. Created as a joke, evolving into a movement.
-      </p>
-    </section>
-
-    <div class="glass-card">
-      <div class="token-box">
-        <h2>CONTRACT</h2>
-        <div class="copy-box">
-          <span id="tokenAddress">5ZM7K9oW5nJ1D7mLZRsVZVpoBeFNJZ4sZHu2MMKKNdNE</span>
-          <button id="copyBtn"><i class="fas fa-copy"></i> COPY</button>
-        </div>
-      </div>
-
-      <div class="social-links">
-        <a href="https://t.me/GT6DOLLARS" target="_blank" class="social-btn tg">
-          <i class="fab fa-telegram"></i> Telegram
-        </a>
-        <a href="https://x.com/GT6DOLLARS" target="_blank" class="social-btn tw">
-          <i class="fab fa-twitter"></i> Twitter
-        </a>
-      </div>
-    </div>
-  </main>
-
   <footer>
-    <p>© 2025 GT6DOLLARS | This is a meme token</p>
+    &copy; 2025 GT6DOLLARS. All rights reserved.
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const moneySymbols = ['💵', '🪙', '💰', '💸'];
+    const createMoney = () => {
+      const money = document.createElement('div');
+      money.classList.add('money');
+      money.innerText = moneySymbols[Math.floor(Math.random() * moneySymbols.length)];
+      money.style.left = Math.random() * 100 + 'vw';
+      money.style.animationDuration = 2 + Math.random() * 3 + 's';
+      money.style.opacity = Math.random();
+      document.body.appendChild(money);
+      setTimeout(() => money.remove(), 5000);
+    };
+
+    setInterval(createMoney, 200);
+  </script>
 </body>
 </html>
