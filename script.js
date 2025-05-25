@@ -1,4 +1,4 @@
-(function createMoneyRain() {
+function createMoneyRain() {
   for (let i = 0; i < 30; i++) {
     const money = document.createElement("div");
     money.classList.add("money");
@@ -13,7 +13,8 @@
   }
 }
 
-createMoneyRain(); // Initial rain
-setInterval(() => {
-  createMoneyRain();
-}, 60000); // Rain every 60 seconds
+// Trigger rain immediately and every 60 seconds
+window.addEventListener("load", () => {
+  createMoneyRain(); // Start on load
+  setInterval(createMoneyRain, 60000); // Repeat every 60 seconds
+});

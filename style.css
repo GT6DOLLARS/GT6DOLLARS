@@ -24,13 +24,14 @@ body {
   margin-bottom: 30px;
 }
 
-/* Horizontal Card Layout */
+/* Horizontal layout */
 .horizontal-wrapper {
   display: flex;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   gap: 20px;
-  padding: 20px 0;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
+  justify-content: center;
 }
 
 .horizontal-wrapper .card {
@@ -41,6 +42,7 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 20px gold;
   margin: 0 10px;
+  text-align: left;
 }
 
 a {
@@ -60,7 +62,7 @@ footer {
 }
 
 .token {
-  word-break: break-all;
+  word-break: break-word;
   font-size: 0.9rem;
 }
 
