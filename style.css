@@ -1,104 +1,88 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0d0d0d;
-  color: #fff;
+  padding: 0;
+  background: #0d0d0d;
+  color: gold;
+  font-family: 'Segoe UI', sans-serif;
   overflow-x: hidden;
 }
 
-header {
+.container {
   text-align: center;
-  padding: 30px 10px 20px;
+  padding: 40px 20px;
 }
 
 .logo {
-  width: 140px;
-  height: auto;
-  margin-bottom: 10px;
+  width: 150px;
+  margin-bottom: 20px;
 }
 
-.glow-title {
+.animated-name {
   font-size: 2.5rem;
-  color: gold;
-  text-shadow: 0 0 15px gold;
-  letter-spacing: 2px;
-}
-
-.gold-text {
-  color: gold;
-  text-shadow: 0 0 10px #ffd700;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  padding: 40px;
+  animation: pulse 2s infinite;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
 }
 
 .card {
-  background-color: #1a1a1a;
-  border-radius: 16px;
+  background: #1a1a1a;
+  margin: 20px auto;
   padding: 20px;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-  transition: transform 0.3s;
+  border-radius: 20px;
+  max-width: 500px;
+  box-shadow: 0 0 20px gold;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.copy-address {
-  word-break: break-all;
-  font-family: monospace;
-}
-
-.socials {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.socials a {
+a {
   color: gold;
-  margin: 0 15px;
-  font-weight: bold;
   text-decoration: none;
-  transition: text-shadow 0.3s;
+  font-weight: bold;
 }
 
-.socials a:hover {
-  text-shadow: 0 0 10px gold;
+a:hover {
+  color: white;
 }
 
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: #111;
-  font-size: 0.9rem;
-  color: #aaa;
+  margin-top: 40px;
+  color: #777;
 }
 
-.falling-container {
+.token {
+  word-break: break-all;
+  font-size: 0.9rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px gold, 0 0 20px gold;
+  }
+  50% {
+    text-shadow: 0 0 30px gold, 0 0 40px gold;
+  }
+}
+
+.money-rain {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1000;
+  z-index: 999;
 }
-.falling {
+
+.money {
   position: absolute;
-  font-size: 24px;
-  animation: fall 10s linear;
+  top: 0;
+  font-size: 1.5rem;
+  animation: fall linear;
 }
+
 @keyframes fall {
-  0% {
-    top: -50px;
-    opacity: 1;
-  }
-  100% {
-    top: 100vh;
+  to {
+    transform: translateY(100vh);
     opacity: 0;
   }
 }

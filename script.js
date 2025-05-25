@@ -1,22 +1,19 @@
-function createFallingElement() {
-  const el = document.createElement('div');
-  el.classList.add('falling');
-  el.innerText = Math.random() > 0.5 ? '💵' : '🪙';
-  el.style.left = Math.random() * 100 + 'vw';
-  el.style.fontSize = Math.random() * 20 + 20 + 'px';
-  document.getElementById('falling-container').appendChild(el);
-
-  setTimeout(() => el.remove(), 10000); // Remove after fall
-}
-
-function startRain() {
+function createMoneyRain() {
   for (let i = 0; i < 30; i++) {
-    setTimeout(createFallingElement, i * 300);
+    const money = document.createElement("div");
+    money.classList.add("money");
+    money.style.left = Math.random() * 100 + "vw";
+    money.style.animationDuration = 2 + Math.random() * 3 + "s";
+    money.innerText = Math.random() > 0.5 ? "💵" : "🪙";
+    document.querySelector(".money-rain").appendChild(money);
+
+    setTimeout(() => {
+      money.remove();
+    }, 6000);
   }
 }
 
-// Start rain on page load
-startRain();
-
-// Repeat rain every 60 seconds
-setInterval(startRain, 60000);
+createMoneyRain(); // Initial rain
+setInterval(() => {
+  createMoneyRain();
+}, 60000); // Rain every 60 seconds
