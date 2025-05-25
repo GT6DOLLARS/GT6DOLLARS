@@ -2,116 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GT6DOLLARS</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #000;
-      color: #ffd700;
-      font-family: 'Arial Black', sans-serif;
-      text-align: center;
-    }
-
-    header {
-      padding: 30px 20px 10px;
-    }
-
-    .logo {
-      width: 200px;
-      height: auto;
-      margin: 0 auto 20px;
-    }
-
-    h1 {
-      font-size: 3em;
-      text-shadow: 0 0 20px gold;
-    }
-
-    .info {
-      font-size: 1.1em;
-      margin-bottom: 10px;
-      color: white;
-      text-shadow: 0 0 10px gold;
-    }
-
-    .info strong {
-      color: #ffd700;
-    }
-
-    .links {
-      margin-top: 20px;
-    }
-
-    .links a {
-      color: #ffd700;
-      margin: 0 15px;
-      text-decoration: none;
-      font-size: 1.2em;
-    }
-
-    .links a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      font-size: 0.9em;
-      color: #888;
-    }
-
-    .money {
-      position: absolute;
-      top: -50px;
-      font-size: 30px;
-      animation: fall linear infinite;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(110vh);
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GT6DOLLARS - Meme Coin</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Falling coins/dollars -->
+  <div class="falling-container" id="falling-container"></div>
+
   <header>
-    <img class="logo" src="553aafe9-bad9-42e5-8b20-9ca1128c5028.png" alt="GT6DOLLARS Logo" />
-    <h1>GT6DOLLARS</h1>
-    <div class="info">
-      Token Address:<br/>
-      <strong>5ZM7K9oW5nJ1D7mLZRsVZVpoBeFNJZ4sZHu2MMKKNdNE</strong>
-    </div>
-    <div class="links">
-      <a href="https://t.me/GT6A_Token" target="_blank">Telegram</a>
-      <a href="https://x.com/g_t6Adollar" target="_blank">X (Twitter)</a>
-    </div>
+    <img src="logo-new.png" alt="GT6DOLLARS Logo" class="logo" />
+    <h1 class="glow-title">GT6<span class="gold-text">DOLLARS</span></h1>
   </header>
 
+  <main>
+    <section class="info-grid">
+      <div class="card">
+        <h2>🚀 What is GT6DOLLARS?</h2>
+        <p>A meme coin inspired by GTA 6 hype, built on Solana, designed to go viral.</p>
+      </div>
+      <div class="card">
+        <h2>💰 Total Supply</h2>
+        <p>1,000,000,000 GT6DOLLARS</p>
+      </div>
+      <div class="card">
+        <h2>🔗 Token Address</h2>
+        <p class="copy-address">5ZM7K9oW5nJ1D7mLZRsVZVpoBeFNJZ4sZHu2MMKKNdNE</p>
+      </div>
+      <div class="card">
+        <h2>📈 Why Invest?</h2>
+        <p>Launched before GTA 6. Strong branding, powerful community memes, and huge upside potential.</p>
+      </div>
+    </section>
+
+    <div class="socials">
+      <a href="https://x.com/g_t6Adollar" target="_blank">Twitter (X)</a>
+      <a href="https://t.me/GT6A_Token" target="_blank">Telegram</a>
+    </div>
+  </main>
+
   <footer>
-    &copy; 2025 GT6DOLLARS. All rights reserved.
+    <p>&copy; 2025 GT6DOLLARS - Built on Solana</p>
   </footer>
 
-  <script>
-    const moneySymbols = ['💵', '🪙', '💰', '💸'];
-    const createMoney = () => {
-      const money = document.createElement('div');
-      money.classList.add('money');
-      money.innerText = moneySymbols[Math.floor(Math.random() * moneySymbols.length)];
-      money.style.left = Math.random() * 100 + 'vw';
-      money.style.animationDuration = 2 + Math.random() * 3 + 's';
-      money.style.opacity = Math.random();
-      document.body.appendChild(money);
-      setTimeout(() => money.remove(), 5000);
-    };
-
-    setInterval(createMoney, 200);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

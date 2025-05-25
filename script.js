@@ -1,38 +1,22 @@
-// SAFE ANIMATION CONTROLLER
 function createFallingElement() {
-  const element = document.createElement('span');
-  element.textContent = '$';
-  element.style.left = `${Math.random() * 100}%`;
-  element.style.animationDuration = `${Math.random() * 3 + 2}s`;
-  element.style.opacity = Math.random() * 0.5 + 0.3;
-  document.getElementById('moneyRain').appendChild(element);
+  const el = document.createElement('div');
+  el.classList.add('falling');
+  el.innerText = Math.random() > 0.5 ? '💵' : '🪙';
+  el.style.left = Math.random() * 100 + 'vw';
+  el.style.fontSize = Math.random() * 20 + 20 + 'px';
+  document.getElementById('falling-container').appendChild(el);
+
+  setTimeout(() => el.remove(), 10000); // Remove after fall
 }
 
-function startAnimation() {
-  const rain = document.getElementById('moneyRain');
-  rain.innerHTML = '';
-  
-  // Create elements safely
+function startRain() {
   for (let i = 0; i < 30; i++) {
-    createFallingElement();
+    setTimeout(createFallingElement, i * 300);
   }
-  
-  rain.style.display = 'block';
-  setTimeout(() => {
-    rain.style.display = 'none';
-  }, 5000);
 }
 
-// Start cycle
-setTimeout(startAnimation, 1000);
-setInterval(startAnimation, 65000);
+// Start rain on page load
+startRain();
 
-// Copy button
-document.getElementById('copyBtn').addEventListener('click', () => {
-  navigator.clipboard.writeText('5ZM7K9oW5nJ1D7mLZRsVZVpoBeFNJZ4sZHu2MMKKNdNE');
-  const btn = document.getElementById('copyBtn');
-  btn.innerHTML = '<i class="fas fa-check"></i> COPIED!';
-  setTimeout(() => {
-    btn.innerHTML = '<i class="fas fa-copy"></i> COPY';
-  }, 2000);
-});
+// Repeat rain every 60 seconds
+setInterval(startRain, 60000);
