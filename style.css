@@ -1,119 +1,143 @@
+/* Modern Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #0b0b0b; /* Deep black like the image */
-  font-family: Arial, sans-serif;
+  background: #0b0b0b;
+  font-family: 'Arial', sans-serif;
   color: gold;
   overflow-x: hidden;
-  position: relative;
+  min-height: 100vh;
 }
 
-header {
-  display: flex;
-  align-items: center;
-  padding: 20px;
+/* Gradient Gold Text */
+.gradient-gold {
+  background: linear-gradient(90deg, #ffd700, #ffaa00, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
 }
 
+/* Glass Card Effect */
+.glass-card {
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+}
+
+/* Logo Spin on Hover */
 .logo {
   width: 100px;
-  height: auto;
-  margin-right: 20px;
-  box-shadow: none;
+  transition: transform 0.5s;
+}
+.logo.spin-on-hover:hover {
+  transform: rotate(360deg);
 }
 
-h1 {
-  font-size: 3em;
-  color: gold;
-  text-shadow: 0 0 10px #ffd700;
-}
-
-main {
-  text-align: center;
-  padding: 30px;
-}
-
-.info {
-  font-size: 1.2em;
-  margin: 20px auto;
-  max-width: 800px;
-  text-shadow: 0 0 10px gold;
-}
-
-.info-box {
-  background-color: rgba(255, 215, 0, 0.05);
-  border: 1px solid gold;
-  padding: 20px;
-  border-radius: 10px;
-  display: inline-block;
-  text-align: left;
-  box-shadow: 0 0 15px gold;
-}
-
-a {
-  color: gold;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.copy-text {
-  user-select: all;
-  cursor: pointer;
-  display: inline-block;
-  font-family: monospace;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  color: gold;
-  font-size: 0.9em;
-  border-top: 1px solid gold;
-  margin-top: 40px;
-}
-
+/* Money Rain (Dynamic) */
 .money-rain {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow: hidden;
+  z-index: -1;
 }
-
 .money-rain span {
   position: absolute;
   color: gold;
-  font-size: 2em;
-  animation: fall 4s linear infinite;
-  opacity: 0.8;
+  font-size: 1.5em;
+  animation: fall linear infinite;
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+.money-rain span:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px gold;
 }
 
+/* Keyframes */
 @keyframes fall {
-  0% {
-    transform: translateY(-100vh);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
+  to { transform: translateY(100vh); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; text-shadow: 0 0 15px gold; }
+}
+.gold-pulse { animation: pulse 2s infinite; }
+
+/* Meme Badge */
+.meme-badge {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 215, 0, 0.2);
+  color: gold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  animation: float 3s ease-in-out infinite;
 }
 
-.money-rain span:nth-child(1) { left: 10%; animation-delay: 0s; }
-.money-rain span:nth-child(2) { left: 25%; animation-delay: 1s; }
-.money-rain span:nth-child(3) { left: 40%; animation-delay: 2s; }
-.money-rain span:nth-child(4) { left: 55%; animation-delay: 1.5s; }
-.money-rain span:nth-child(5) { left: 70%; animation-delay: 0.5s; }
-.money-rain span:nth-child(6) { left: 85%; animation-delay: 1.2s; }
-.money-rain span:nth-child(7) { left: 5%; animation-delay: 2.5s; }
-.money-rain span:nth-child(8) { left: 35%; animation-delay: 3s; }
-.money-rain span:nth-child(9) { left: 60%; animation-delay: 0.3s; }
-.money-rain span:nth-child(10) { left: 90%; animation-delay: 0.8s; }
+/* Copy Box */
+.copy-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+#tokenAddress {
+  font-family: monospace;
+  word-break: break-all;
+}
+#copyBtn {
+  background: rgba(255, 215, 0, 0.2);
+  color: gold;
+  border: 1px solid gold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#copyBtn:hover {
+  background: rgba(255, 215, 0, 0.4);
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.social-links a {
+  color: gold;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.social-links a:hover {
+  color: #ffaa00;
+  transform: translateY(-3px);
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  header { flex-direction: column; text-align: center; }
+  .logo { margin-right: 0; margin-bottom: 15px; }
+  .glass-card { width: 90%; }
+}
